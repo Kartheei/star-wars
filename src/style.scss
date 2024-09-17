@@ -1,0 +1,70 @@
+html body {
+    background: linear-gradient(rgba(1, 1, 2, 0.829), rgba(14, 15, 15, 0.508)),
+        url('./utils/assets/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #cccccc;
+    font-family: 'Roboto', sans-serif;
+}
+
+.posterImage {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card {
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.card.filmCard {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border: 1px solid black;
+}
+
+.filmCard:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+}
+
+.sort-dropdown {
+    margin-bottom: 20px;
+    background-color: #3c3a3a;
+    border: 1px solid #3c3a3a;
+}
+
+@media (min-width: 768px) {
+    .card.filmCard {
+        width: 16rem;
+        height: 32rem;
+    }
+
+    .posterImage {
+        height: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card.filmCard {
+        width: 18rem;
+        height: 38rem;
+    }
+
+    .posterImage {
+        height: 350px;
+    }
+
+    .sort-dropdown {
+        // width: 50%; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
