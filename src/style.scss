@@ -38,6 +38,9 @@ html body {
     border-color: darkgray;
     background-color: black;
     color: white;
+    left: 175px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .link {
@@ -89,6 +92,11 @@ html body {
     height: 500px;
 }
 
+.col-card {
+    display: flex;
+    justify-content: center;
+}
+
 @media (min-width: 768px) {
     .card.filmCard {
         width: 16rem;
@@ -119,6 +127,7 @@ html body {
     .sort-dropdown {
         margin-left: auto;
         margin-right: auto;
+
     }
 
     .list-group-item {
