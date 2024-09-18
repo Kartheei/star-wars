@@ -1,3 +1,13 @@
+interface GetFilmCharacterConnectionCharacterResponseDTO {
+    id: string;
+    name: string;
+    gender: string;
+}
+
+
+interface GetFilmCharacterConnectionResponseDTO {
+    characters: GetFilmCharacterConnectionCharacterResponseDTO[];
+}
 
 interface GetAllFilmsResponseDTO {
     director: string;
@@ -6,6 +16,8 @@ interface GetAllFilmsResponseDTO {
     openingCrawl: string;
     releaseDate: string;
     title: string;
+    characterConnection: GetFilmCharacterConnectionResponseDTO;
+
 }
 
 export type {

@@ -16,7 +16,7 @@ const FilmCard: React.FC<FilmCardProps> = ({ films }) => {
     return (
         <Row>
             {films.map((film) => (
-                <Col key={film.id} xs={12} md={4} className="mb-3">
+                <Col key={film.id} xs={12} md={4} className="mb-3 col-card">
                     <Link to={`/films/${film.id}`} className="link">
                         <Card className='filmCard'>
                             <Card.Img variant="top"

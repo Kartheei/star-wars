@@ -1,41 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { female, male } from "../../utils/assets/images";
 import "../../style.scss";
-import { GetFilmResponseDTO } from "../dto";
-import { FilmService } from "../service";
 import { Header, Footer } from "../component";
-
+import Spinner from "react-bootstrap/Spinner";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 const FilmDetails: React.FC = () => {
+    debugger;
     const { id } = useParams<{ id: string }>();
-    const [film, setFilm] = useState<GetFilmResponseDTO | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+
+    const films = useSelector((state: RootState) => state.films.items);
+    const loading = useSelector((state: RootState) => state.films.status === "loading");
+    const error = useSelector((state: RootState) => state.films.error);
+
+    const film = films.find(film => film.id === id);
 
     useEffect(() => {
-        if (!id) throw new Error("Film id is required in Film details page");
-
-        const filmService = new FilmService();
-
-        const fetchFilmDetails = async () => {
-            try {
-                const filmData = await filmService.getFilmById(id);
-                setFilm(filmData);
-            } catch (error) {
-                setError("Error fetching film details");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchFilmDetails();
+        if (!id) return;
+        window.scrollTo(0, 0);
     }, [id]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
-    if (!film) return <p>No film data available</p>;
+    if (!id) {
+        return (
+            <div className="centered-box">
+                <div className="message-box">
+                    <strong>Film ID is missing from the URL</strong>
+                </div>
+            </div>
+        );
+    }
 
+    if (loading) {
+        return (
+            <div className="centered-spinner">
+                <Spinner animation="grow" className="large-spinner" />
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <div className="centered-box">
+                <div className="message-box">
+                    <strong>{error}</strong>
+                </div>
+            </div>
+        );
+    }
+
+    if (!film) {
+        return (
+            <div className="centered-box">
+                <div className="message-box">
+                    <strong>No film data available</strong>
+                </div>
+            </div>
+        );
+    }
     return (
         <>
             <Header />
@@ -46,10 +68,10 @@ const FilmDetails: React.FC = () => {
 
                         <div>
                             <strong>Release Date : </strong>
-                            <span>{new Date(film.releaseDate).toLocaleDateString('en-GB', {
-                                day: '2-digit',
-                                month: 'short',
-                                year: 'numeric'
+                            <span>{new Date(film.releaseDate).toLocaleDateString("en-GB", {
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric"
                             })}</span>
                         </div>
                         <br />

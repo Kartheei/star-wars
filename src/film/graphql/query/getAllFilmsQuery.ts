@@ -13,10 +13,17 @@ query getAllFilms {
             openingCrawl
             releaseDate
             title
+            characterConnection {
+                characters {
+                    id
+                    name
+                    gender
+                }
+            }
         }
     }
-}
-`;
+}`
+    ;
 
 export {
     getAllFilmsQuery
