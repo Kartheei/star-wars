@@ -42,13 +42,13 @@ const retryLink = new RetryLink({
 
 const link = ApolloLink.from([errorLink, retryLink, httpLink]);
 
-const TTL = 10 * 1000;
+const TTL = 5 * 60 * 1000;
 
 const cache = new InMemoryCache({
     typePolicies: {
         Query: {
             fields: {
-                _: {
+                allFilms: {
                     read(existing) {
                         if (existing && Date.now() - existing.__timestamp < TTL) {
                             return existing.data;
@@ -58,8 +58,7 @@ const cache = new InMemoryCache({
                     merge(existing, incoming) {
                         return {
                             ...incoming,
-                            __timestamp: Date.now(),
-                            data: incoming
+                            __timestamp: Date.now()
                         };
                     }
                 }
