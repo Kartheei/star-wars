@@ -22,7 +22,9 @@ This will launch the application on http://localhost:3000.
 
 ## URLs
 
-- **GitHub Repository**: [Star Wars Repo Link](https://github.com/Kartheei/star-wars)
+- **GitHub Repository**: 
+    - [Star Wars Repo Link](https://github.com/Kartheei/star-wars)
+    - [Star Wars with Redux implementation](https://github.com/Kartheei/star-wars/tree/utils/redux-state-management)
 - **Hosted Application**: [Star Wars Live](https://star-wars.karthickks.com)
 
 ## Features
