@@ -46,10 +46,10 @@ const FilmDetails: React.FC = () => {
 
                         <div>
                             <strong>Release Date : </strong>
-                            <span>{new Date(film.releaseDate).toLocaleDateString('en-GB', {
-                                day: '2-digit',
-                                month: 'short',
-                                year: 'numeric'
+                            <span>{new Date(film.releaseDate).toLocaleDateString("en-GB", {
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric"
                             })}</span>
                         </div>
                         <br />
