@@ -6,6 +6,7 @@ import "../../style.scss";
 import { GetFilmResponseDTO } from "../dto";
 import { FilmService } from "../service";
 import { Header, Footer } from "../component";
+import Spinner from "react-bootstrap/Spinner";
 
 const FilmDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -32,9 +33,32 @@ const FilmDetails: React.FC = () => {
         fetchFilmDetails();
     }, [id]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
-    if (!film) return <p>No film data available</p>;
+    if (loading) {
+        return (
+            <div className="centered-box">
+                <Spinner animation="grow" className="large-spinner" />
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <div className="centered-box">
+                <div className="message-box">
+                    <strong>{error}</strong>
+                </div>
+            </div>
+        );
+    }
+
+    if (!film) {
+        return (
+            <div className="centered-box">
+                <div className="message-box">
+                    <strong>No film data available</strong>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>

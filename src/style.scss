@@ -68,6 +68,27 @@ html body {
     border-radius: 10px;
 }
 
+.centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.message-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: black;
+}
+
+.large-spinner {
+    width: 500px;
+    height: 500px;
+}
+
 @media (min-width: 768px) {
     .card.filmCard {
         width: 16rem;
