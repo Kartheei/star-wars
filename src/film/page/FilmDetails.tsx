@@ -34,7 +34,7 @@ const FilmDetails: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="centered-spinner">
+            <div className="centered-box">
                 <Spinner animation="grow" className="large-spinner" />
             </div>
         );
