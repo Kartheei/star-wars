@@ -1,12 +1,20 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import '../../style.scss';
+import React from "react";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { logo } from "../../utils";
+
 
 const Header: React.FC = () => {
     return (
         <header className="text-white py-3">
             <Container className="text-center">
-                <h1>Star Wars Films</h1>
+                <Link to={"/"} className="link">
+                    <img
+                        src={logo}
+                        alt="logo"
+                        className="logo-img"
+                    />
+                </Link>
             </Container>
         </header>
     );

@@ -1,6 +1,12 @@
 import { client } from "../../utils";
-import { GetAllFilmsResponseDTO } from "../dto";
-import { getAllFilmsQuery } from "../graphql";
+import {
+    GetAllFilmsResponseDTO,
+    GetFilmResponseDTO
+} from "../dto";
+import {
+    getAllFilmsQuery,
+    getFilmQuery
+} from "../graphql";
 
 
 class FilmService {
@@ -16,6 +22,19 @@ class FilmService {
             throw error;
         }
     }
+
+    async getFilmById(id: string): Promise<GetFilmResponseDTO> {
+        try {
+            const response = await client.query({
+                query: getFilmQuery,
+                variables: { id: id }
+            });
+            return response.data.film;
+        } catch (error) {
+            console.error("Error fetching films: ", error);
+            throw error;
+        }
+    };
 }
 
 export {
