@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Star Wars Episodes Listing Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Star Wars site that lists all the episodes of Star Wars, utilizing Apollo GraphQL to fetch and display data. It is built with React (Typescript), and hosted on AWS.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To install the necessary dependencies, run:
 
-### `npm start`
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Running the Application
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To start the application locally, run:
 
-### `npm test`
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This will launch the application on http://localhost:3000.
 
-### `npm run build`
+## URLs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **GitHub Repository**: [Star Wars Repo Link](https://github.com/Kartheei/star-wars)
+- **Hosted Application**: [Star Wars Live](https://star-wars.karthickks.com)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
+- **Apollo GraphQL Integration**: Utilized Apollo Client to interact with a GraphQL API to fetch data from the Star Wars universe.
+- **Star Wars Episodes Listing**: Displays a complete list of all the Star Wars episodes.
+- **Responsive UI**: Optimized for various screen sizes, ensuring a seamless experience on desktop and mobile devices.
+- **Sorting Functionality**: Users can sort the list of Star Wars episodes based on:
+  - **Episode Number**: Sort by the chronological order of the episodes.
+  - **Title**: Alphabetically sort by the title of the episode.
+  - **Release Date**: Sort by the release date, allowing users to view episodes from oldest to newest or vice versa.
+- **Episode Details Page**: Each episode has a dedicated page with detailed information, including:
+  - Episode title
+  - Episode release date
+  - Opening crawl (a summary of the movie)
+  - Director and producer information
+- **Hosted on AWS**: The application is deployed and hosted on AWS for high availability and scalability.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Movie Page Details
+Each episode’s dedicated page provides the following details:
+- **Title**: The name of the Star Wars episode.
+- **Release Date**: When the episode was released in theaters.
+- **Opening Crawl**: The famous opening crawl that summarizes the plot of the episode.
+- **Director & Producer**: The people responsible for directing and producing the episode.
 
-### `npm run eject`
+## Sorting Feature
+The list of Star Wars episodes can be sorted by:
+1. **Episode**: View the episodes in the chronological order of release (Episode I through Episode IX).
+2. **Title**: Sort episodes alphabetically by their titles.
+3. **Release Date**: Sort the episodes based on their release date (ascending or descending).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies Used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React**: Frontend framework for building UI components.
+- **Apollo Client**: For querying data using GraphQL.
+- **AWS**: Application hosted on AWS for scalability and reliability.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+src/
+├───film/
+│   ├───component/
+│   ├───dto/
+│   │   ├───request/
+│   │   └───response/
+│   ├───graphql/
+│   │   ├───mutation/
+│   │   └───query/
+│   ├───page/
+│   └───service/
+└───utils/
+    ├───api/
+    ├───assets/
+    │   └───images/
+    │       ├───common/
+    │       └───poster/
+    ├───helpers/
+    └───hook/
+```
