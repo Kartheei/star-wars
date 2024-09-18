@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 
 const getAllFilmsQuery = gql`
@@ -12,13 +12,7 @@ query getAllFilms {
             id
             openingCrawl
             releaseDate
-            title 
-			characterConnection { 
-				characters {
-                    id
-                    name
-                }
-            }
+            title
         }
     }
 }
