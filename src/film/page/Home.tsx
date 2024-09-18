@@ -4,6 +4,7 @@ import "../../style.scss";
 import { GetAllFilmsResponseDTO } from "../dto";
 import { FilmService } from "../service";
 import { FilmCard, Header, Footer } from "../component";
+import Spinner from "react-bootstrap/Spinner";
 
 
 const Home: React.FC = () => {
@@ -42,8 +43,22 @@ const Home: React.FC = () => {
     };
 
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    if (loading) {
+        return (
+            <div className="centered-box">
+                <Spinner animation="grow" className="large-spinner" />
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <div className="centered-box">
+                <div className="message-box">
+                    <strong>{error}</strong>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>
