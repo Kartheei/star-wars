@@ -1,8 +1,17 @@
-html body {
+$primary-color: #cccccc;
+$background-color: #000;
+$border-color: darkgray;
+$border-color-light: #ccc;
+$hover-scale: 1.05;
+$font-family: 'Roboto', sans-serif;
+
+
+html,
+body {
     background: url('./utils/assets/images/common/background.jpeg');
     background-size: contain;
-    color: #cccccc;
-    font-family: 'Roboto', sans-serif;
+    color: $primary-color;
+    font-family: $font-family;
 }
 
 .posterImage {
@@ -10,36 +19,51 @@ html body {
     height: 350px;
     object-fit: cover;
     border-radius: 8px;
+
+    @media (min-width: 768px) {
+        height: 300px;
+    }
+
+    @media (min-width: 1024px) {
+        height: 350px;
+    }
 }
 
 .card {
     margin-bottom: 40px;
     cursor: pointer;
-}
 
-.card.filmCard {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    border: 1px solid #65656e;
-}
+    &.filmCard {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        border: 1px solid #65656e;
 
-.filmCard:hover {
-    transform: scale(1.05);
-    opacity: 1;
-}
+        &:hover {
+            transform: scale($hover-scale);
+            opacity: 1;
+        }
+    }
 
-.card-button {
-    display: flex;
-    justify-content: center;
+    @media (min-width: 768px) {
+        &.filmCard {
+            width: 16rem;
+            height: 32rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        &.filmCard {
+            width: 18rem;
+            height: 38rem;
+        }
+    }
 }
 
 #dropdown-basic {
-    border-color: darkgray;
-    background-color: black;
+    border-color: $border-color;
+    background-color: $background-color;
     color: white;
-    left: 175px;
-    position: relative;
     margin-bottom: 20px;
 }
 
@@ -62,6 +86,16 @@ html body {
     cursor: pointer;
     width: 200px;
     height: 100px;
+
+    @media (min-width: 768px) {
+        width: 250px;
+        height: 120px;
+    }
+
+    @media (min-width: 1024px) {
+        width: 450px;
+        height: 200px;
+    }
 }
 
 .film-details-container {
@@ -79,7 +113,7 @@ html body {
 }
 
 .message-box {
-    border: 2px solid #ccc;
+    border: 2px solid $border-color-light;
     padding: 20px;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -97,47 +131,14 @@ html body {
     justify-content: center;
 }
 
-@media (min-width: 768px) {
-    .card.filmCard {
-        width: 16rem;
-        height: 32rem;
-    }
-
-    .posterImage {
-        height: 300px;
-    }
-
-    .logo-img {
-        cursor: pointer;
-        width: 250px;
-        height: 120px;
-    }
+.sort-dropdown {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (min-width: 1024px) {
-    .card.filmCard {
-        width: 18rem;
-        height: 38rem;
-    }
-
-    .posterImage {
-        height: 350px;
-    }
-
-    .sort-dropdown {
-        margin-left: auto;
-        margin-right: auto;
-
-    }
-
     .list-group-item {
         border-radius: 10px !important;
         margin-bottom: 10px;
-    }
-
-    .logo-img {
-        cursor: pointer;
-        width: 450px;
-        height: 200px;
     }
 }

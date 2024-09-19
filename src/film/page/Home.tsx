@@ -63,18 +63,20 @@ const Home: React.FC = () => {
     return (
         <>
             <Header />
-            <Dropdown as={ButtonGroup} className="mb-3">
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                    Sort By: {sortOption.charAt(0).toUpperCase() + sortOption.slice(1)}
-                </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => setSortOption("title")}>Title</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setSortOption("releaseDate")}>Release Date</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setSortOption("episode")}>Episode Number</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
             <Container>
+                <Dropdown as={ButtonGroup} className="mb-3">
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                        Sort By: {sortOption.charAt(0).toUpperCase() + sortOption.slice(1)}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => setSortOption("title")}>Title</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setSortOption("releaseDate")}>Release Date</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setSortOption("episode")}>Episode Number</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
                 <Row>
                     <FilmCard films={sortFilms(films)} />
                 </Row>
